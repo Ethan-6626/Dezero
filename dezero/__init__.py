@@ -22,8 +22,10 @@ else:
     from dezero.core import setup_variable
     from dezero.dataloaders import DataLoader
 
+    import dezero.datasets
     import dezero.functions
     import dezero.layers
     import dezero.models
+    import numpy as np
 
 setup_variable()

@@ -5,7 +5,7 @@
 
 一个轻量级的深度学习框架，从零开始实现自动求导和神经网络。DeZero致力于提供清晰、易懂的代码，帮助学习者深入理解深度学习的核心原理。
 
-[English Version](./README_EN.md) | [中文版本](./README.md)
+> **语言选择 | Language Selection**: [🇬🇧 English](./README_EN.md) | [🇨🇳 中文](./README.md)
 
 ## 📋 目录
 
@@ -71,6 +71,7 @@ import numpy as np
 from dezero import Variable, Model, Layer
 import dezero.functions as F
 
+
 # 定义模型
 class TwoLayerNet(Model):
     def __init__(self, input_size, hidden_size, output_size):
@@ -82,6 +83,7 @@ class TwoLayerNet(Model):
         y = self.l1(x)
         y = self.l2(y)
         return y
+
 
 # 创建模型
 model = TwoLayerNet(10, 20, 1)
@@ -174,17 +176,20 @@ print(x.grad)
 from dezero import Function, Variable
 import numpy as np
 
+
 class Square(Function):
     def forward(self, x):
         return x ** 2
-    
+
     def backward(self, gy):
         x, = self.inputs
         gx = 2 * x * gy
         return gx
 
+
 def square(x):
     return Square()(x)
+
 
 # 使用自定义函数
 x = Variable(np.array(3.0))
@@ -233,8 +238,8 @@ from dezero import Variable
 import numpy as np
 
 x = Variable(np.array(2.0))
-print(x.data)    # 获取数据
-print(x.grad)    # 获取梯度（初始为None）
+print(x.data)  # 获取数据
+print(x.grad)  # 获取梯度（初始为None）
 ```
 
 ### Function（函数）
@@ -244,11 +249,12 @@ print(x.grad)    # 获取梯度（初始为None）
 ```python
 from dezero import Function
 
+
 class MyFunction(Function):
     def forward(self, x):
         # 前向传播计算
         return x ** 2
-    
+
     def backward(self, gy):
         # 反向传播计算梯度
         x, = self.inputs
@@ -261,7 +267,7 @@ class MyFunction(Function):
 
 ```python
 y.backward()  # 自动计算所有输入的梯度
-print(x.grad) # 获取x的梯度
+print(x.grad)  # 获取x的梯度
 ```
 
 ### 计算图
