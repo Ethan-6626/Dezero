@@ -1,0 +1,20 @@
+# 开发依赖
+-r requirements.txt
+
+# 测试
+pytest>=6.0.0
+pytest-cov>=2.10.0
+
+# 代码质量
+pylint>=2.6.0
+flake8>=3.8.0
+yapf>=0.30.0
+
+# 文档
+Sphinx>=3.0.0
+sphinx-rtd-theme>=0.5.0
+
+# 其他工具
+ipython>=7.0.0
+jupyter>=1.0.0
+
